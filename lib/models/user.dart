@@ -27,7 +27,7 @@ class User {
 
   factory User({String name, String phone, String email}) {
     if (name.isEmpty) throw Exception("User name is empty");
-    if (phone.isEmpty || email.isEmpty)
+    if (phone != null && email != null) if (phone.isEmpty || email.isEmpty)
       throw Exception("phone or email is empty");
 
     return User._(
@@ -43,19 +43,19 @@ class User {
   static String checkPhone(String phone) {
     String pattern = r"^(?:[+0])?[0-9]{11}";
 
-    phone = phone.replaceAll(RegExp("[^+\\d]"), "");
+    if (phone != null) phone = phone.replaceAll(RegExp("[^+\\d]"), "");
 
-    if (phone == null || phone.isEmpty) {
+    if (phone != null) if (phone.isEmpty) {
       throw Exception("Enter don't empty phone number");
     } else if (!RegExp(pattern).hasMatch(phone)) {
       throw Exception(
-          "Enter a valid phone number staring with a + and containing 11 digits");
+          "Enter a valid phone number starting with a + and containing 11 digits");
     }
     return phone;
   }
 
   static String checkEmail(String email) {
-    if (email == null || email.isEmpty) {
+    if (email != null) if (email.isEmpty) {
       throw Exception("Enter don't empty phone number");
     }
     return email;
@@ -87,7 +87,6 @@ class User {
   void removeFriend(User user) {
     friends.remove(user);
   }
-
 
   String get userInfo => '''
     name: $name
