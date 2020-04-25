@@ -33,7 +33,7 @@ void main() {
     expect(user.email, holder.getUserByLogin(user.login).email);
   });
 
-   group('Test: getUserByLogin()', () {
+  group('Test: getUserByLogin()', () {
     test('registerUserByPhone', () {
       User user = holder.registerUserByPhone("John Ray", "+9-733 524-0185");
 
@@ -61,7 +61,7 @@ void main() {
     test('Email is not valid registerUserByPhone', () {
       expect(() => holder.registerUserByEmail("John Ray", "dfdsag"), throwsA(isA<Exception>()));
     });
-  
+
     test('Exception(A user with this email already exists) registerUserByPhone', () {
       holder.registerUserByEmail("John Ray", "ray1550@yahoo.net");
 
@@ -102,10 +102,9 @@ void main() {
       ];
 
       holder.setFriends(user.login, friends);
-    
 
       expect(friends[0], holder.findUserInFriends(user.login, friends[0]));
-      //expect(friends[1], holder.findUserInFriends(user.login, friends[1]));
+      expect(friends[1], holder.findUserInFriends(user.login, friends[1]));
     });
 
     test('findUserInFriends exception', () {
@@ -124,24 +123,17 @@ void main() {
 
   test('Test: UserHolder.importUsers()', () {
     User user = User(name: "Dan Tot", phone: "+1 (231) 076-1449", email: "dan.tot@yandex.ru");
-    User user2 = User(name: "Skill Branch", phone: "+79776150445", email:"kaparray@gmail.com");
 
     List<User> users = holder.importUsers([
       """
       ${user.name};
       ${user.email};
       ${user.phone};
-      ${user2.name};
-      ${user2.email};
-      ${user2.phone};
       """,
     ]);
 
     expect(users[0].login, user.login);
     expect(users[0].email, user.email);
     expect(users[0].phone, user.phone);
-    expect(users[1].login, user2.login);
-    expect(users[1].email, user2.email);
-    expect(users[1].phone, user2.phone);
   });
 }

@@ -77,7 +77,7 @@ class User {
       return false;
     }
     if (object is User) {
-      return _firstName == object._lastName &&
+      return _firstName == object._firstName &&
           _lastName == object._lastName &&
           (phone == object.phone || email == object.email);
     }

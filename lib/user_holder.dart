@@ -41,11 +41,13 @@ class UserHolder {
       users[login].addFriend(friends);
 
   User findUserInFriends(String login, User friend) {
-    // users[login].friends.forEach((e) {
-    //   if (e == user) return user;
-    // });
-    return friend;
-    //return throw Exception('${user.login} is not a friend of the login');
+    bool inFriend;
+    users[login].friends.forEach((User e) {
+      if (e == friend) inFriend = true;
+    });
+    return inFriend == true
+        ? friend
+        : throw Exception('${friend.login} is not a friend of the login');
   }
 
   List<User> importUsers(user) {
@@ -54,9 +56,11 @@ class UserHolder {
         .toString()
         .replaceAll(RegExp(r"\s{2,}|[\]]|[\[]|\n"), "")
         .split(';');
-    for (int i = 0; i < userInString.length-1; i=i+3) {
-    listUsers.add(User(
-        name: userInString[i], email: userInString[i+1], phone: userInString[i+2]));
+    for (int i = 0; i < userInString.length - 1; i = i + 3) {
+      listUsers.add(User(
+          name: userInString[i],
+          email: userInString[i + 1],
+          phone: userInString[i + 2]));
     }
     return listUsers;
   }
