@@ -55,8 +55,11 @@ class User {
   }
 
   static String checkEmail(String email) {
+    String pattern = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)";
     if (email != null) if (email.isEmpty) {
-      throw Exception("Enter don't empty phone number");
+      throw Exception("Enter don't empty email");
+    } else if (!RegExp(pattern).hasMatch(email)) {
+      throw Exception("Enter a valid email");
     }
     return email;
   }

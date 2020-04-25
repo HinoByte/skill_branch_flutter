@@ -102,6 +102,7 @@ void main() {
       ];
 
       holder.setFriends(user.login, friends);
+    
 
       expect(friends[0], holder.findUserInFriends(user.login, friends[0]));
       expect(friends[1], holder.findUserInFriends(user.login, friends[1]));
