@@ -47,4 +47,10 @@ class UserHolder {
     return friend;
    //return throw Exception('${user.login} is not a friend of the login');
   }
+
+  List<User> importUsers(user){
+    String hi = user.toString().replaceAll(RegExp(r"\s{2,}|[\]]|[\[]|\n"), "");
+    List<String> hi1 =hi.split(';');
+    return [User(name: hi1[0], email: hi1[1], phone: hi1[2])];
+  }
 }
