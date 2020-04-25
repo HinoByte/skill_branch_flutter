@@ -45,12 +45,19 @@ class UserHolder {
     //   if (e == user) return user;
     // });
     return friend;
-   //return throw Exception('${user.login} is not a friend of the login');
+    //return throw Exception('${user.login} is not a friend of the login');
   }
 
-  List<User> importUsers(user){
-    String hi = user.toString().replaceAll(RegExp(r"\s{2,}|[\]]|[\[]|\n"), "");
-    List<String> hi1 =hi.split(';');
-    return [User(name: hi1[0], email: hi1[1], phone: hi1[2])];
+  List<User> importUsers(user) {
+    List<User> listUsers = [];
+    List<String> userInString = user
+        .toString()
+        .replaceAll(RegExp(r"\s{2,}|[\]]|[\[]|\n"), "")
+        .split(';');
+    for (int i = 0; i < userInString.length-1; i=i+3) {
+    listUsers.add(User(
+        name: userInString[i], email: userInString[i+1], phone: userInString[i+2]));
+    }
+    return listUsers;
   }
 }

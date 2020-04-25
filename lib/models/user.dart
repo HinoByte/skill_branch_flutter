@@ -107,7 +107,6 @@ class User {
     name: $name
     email: $email
     friends: ${friends.toList()}
-    hashCode: $hashCode
     """;
   }
 }
