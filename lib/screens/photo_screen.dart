@@ -25,15 +25,12 @@ class FullScreenImage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Photo(photoLink: photo),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Text(
-                  altDescription,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppStyles.h3.copyWith(color: AppColors.manatee),
-                ),
-              )
+              Text(
+                altDescription,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: AppStyles.h3.copyWith(color: AppColors.manatee),
+              ),
             ]));
   }
 }
