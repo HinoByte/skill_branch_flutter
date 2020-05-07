@@ -9,10 +9,11 @@ class FullScreenImage extends StatelessWidget {
       this.userName = '',
       this.name = '',
       this.photo = '',
+      this.userPhoto = '',
       Key key})
       : super(key: key);
 
-  final String altDescription, userName, name, photo;
+  final String altDescription, userName, name, photo, userPhoto;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +42,13 @@ class FullScreenImage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Row(
         children: <Widget>[
-          UserAvatar('https://skill-branch.ru/img/speakers/Adechenko.jpg'),
+          UserAvatar(userPhoto),
           SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("name", style: AppStyles.h1Black),
-              Text("@userName",
+              Text(name, style: AppStyles.h1Black),
+              Text(userName,
                   style: AppStyles.h5Black.copyWith(color: AppColors.manatee)),
             ],
           ),
