@@ -25,12 +25,43 @@ class FullScreenImage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Photo(photoLink: photo),
-              Text(
-                altDescription,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: AppStyles.h3.copyWith(color: AppColors.manatee),
+              Padding(
+                padding: EdgeInsets.only(left:10,right: 10,top:11,bottom: 5),
+                child: Text(
+                  'This is Flutter dash. I love him :)',
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppStyles.h3,
+                ),
               ),
+              _buildPhotoMeta(),
             ]));
+  }
+
+  Widget _buildPhotoMeta() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              UserAvatar('https://skill-branch.ru/img/speakers/Adechenko.jpg'),
+              SizedBox(width: 6),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Kirill Adeshchenko', style: AppStyles.h1Black),
+                  Text("@kaparray",
+                      style:
+                          AppStyles.h5Black.copyWith(color: AppColors.manatee)),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
