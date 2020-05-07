@@ -40,22 +40,17 @@ class FullScreenImage extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Row(
+          UserAvatar('https://skill-branch.ru/img/speakers/Adechenko.jpg'),
+          SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              UserAvatar('https://skill-branch.ru/img/speakers/Adechenko.jpg'),
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text('$name', style: AppStyles.h1Black),
-                  Text(userName,
-                      style:
-                          AppStyles.h5Black.copyWith(color: AppColors.manatee)),
-                ],
-              ),
+              Text(name, style: AppStyles.h1Black),
+              Text(userName,
+                  style: AppStyles.h5Black.copyWith(color: AppColors.manatee)),
             ],
           ),
         ],
