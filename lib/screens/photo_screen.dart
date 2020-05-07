@@ -21,7 +21,7 @@ class FullScreenImage extends StatelessWidget {
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Photo(photoLink: altDescription),
+              Photo(photoLink: photo),
               Padding(
                 padding:
                     EdgeInsets.only(left: 10, right: 10, top: 11, bottom: 9),
