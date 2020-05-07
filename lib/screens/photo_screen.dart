@@ -45,12 +45,12 @@ class FullScreenImage extends StatelessWidget {
           Row(
             children: <Widget>[
               UserAvatar('https://skill-branch.ru/img/speakers/Adechenko.jpg'),
-              SizedBox(width: 6),
+              SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text(name, style: AppStyles.h1Black),
+                  Text('$name', style: AppStyles.h1Black),
                   Text(userName,
                       style:
                           AppStyles.h5Black.copyWith(color: AppColors.manatee)),
