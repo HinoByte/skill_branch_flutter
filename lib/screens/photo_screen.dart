@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 
 class FullScreenImage extends StatelessWidget {
   FullScreenImage(
-      {this.altDescription, this.userName, this.name, this.photo, Key key})
+      {this.altDescription = '',
+      this.userName = '',
+      this.name = '',
+      this.photo = '',
+      Key key})
       : super(key: key);
 
   final String altDescription, userName, name, photo;
@@ -13,22 +17,16 @@ class FullScreenImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.white,
-          title: Text('Photo', style: TextStyle(color: AppColors.black)),
-          centerTitle: true,
-          leading: IconButton(
-              icon: Icon(CupertinoIcons.back, color: AppColors.grayChateau),
-              onPressed: () {}),
-        ),
+        appBar: _buildAppBar(context),
         body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Photo(photoLink: photo),
+              Photo(photoLink: altDescription),
               Padding(
-                padding: EdgeInsets.only(left:10,right: 10,top:11,bottom: 5),
+                padding:
+                    EdgeInsets.only(left: 10, right: 10, top: 11, bottom: 9),
                 child: Text(
-                  'This is Flutter dash. I love him :)',
+                  altDescription,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: AppStyles.h3,
@@ -52,8 +50,8 @@ class FullScreenImage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Kirill Adeshchenko', style: AppStyles.h1Black),
-                  Text("@kaparray",
+                  Text(name, style: AppStyles.h1Black),
+                  Text(userName,
                       style:
                           AppStyles.h5Black.copyWith(color: AppColors.manatee)),
                 ],
@@ -62,6 +60,17 @@ class FullScreenImage extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  AppBar _buildAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: AppColors.white,
+      title: Text('Photo', style: TextStyle(color: AppColors.black)),
+      centerTitle: true,
+      leading: IconButton(
+          icon: Icon(CupertinoIcons.back, color: AppColors.grayChateau),
+          onPressed: () => Navigator.pop(context)),
     );
   }
 }
