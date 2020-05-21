@@ -31,25 +31,26 @@ class LikeButtonState extends State<LikeButton> {
       },
       child: Center(
         child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Icon(isLiked ? AppIcons.like_fill : AppIcons.like),
-                SizedBox(width: 4.21),
-                Text(
-                  widget.likeCount.toString(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Color(0xFF000000),
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'Roboto',
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14,
-                      height: 16 / 14),
-                ),
-              ],
-            )),
+          padding: EdgeInsets.all(8),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(isLiked ? AppIcons.like_fill : AppIcons.like),
+              SizedBox(width: 4.21),
+              Text(
+                widget.likeCount.toString(),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Color(0xFF000000),
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'Roboto',
+                    fontStyle: FontStyle.normal,
+                    fontSize: 14,
+                    height: 16 / 14),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
